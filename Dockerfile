@@ -28,4 +28,5 @@ COPY --from=builder /usr/local/lib/python3.8/site-packages/ /usr/local/lib/pytho
 COPY . .
 
 # Command to run the application
-CMD ["python", "main.py", "/output", "output"]
+CMD ["python", "app.py", "output", "pids"]
+

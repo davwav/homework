@@ -2,6 +2,7 @@ import psutil
 import json
 import os
 import sys
+import time
 
 def get_processes_info():
     processes_info = []
@@ -32,12 +33,13 @@ def generate_json(output_dir, json_data, json_name):
     output_file = os.path.join(output_dir, f"{json_name}.json")
     with open(output_file, "w") as f:
         json.dump(data, f, indent=4)
-if __name__ == "__main__":
+
     if len(sys.argv) != 3:
         print("Usage: python main.py OUTPUT_DIR OUTPUT_NAME ")
         sys.exit(1)
 
-    name_of_json = sys.argv[2]
-    processes_info = get_processes_info()
-    output_dir = sys.argv[1]
-    generate_json(output_dir, processes_info, name_of_json)
+name_of_json = sys.argv[2]
+processes_info = get_processes_info()
+output_dir = sys.argv[1]
+generate_json(output_dir, processes_info, name_of_json)
+time.sleep(300)
